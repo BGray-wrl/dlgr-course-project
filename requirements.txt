@@ -1,0 +1,6 @@
+numpy
+torch
+accelerate
+transformers
+transformers-lens
+detoxify
