@@ -15,13 +15,13 @@ print(f"Using device: {device}")
 
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-quantization_config = QuantoConfig(weights="int4")
+# quantization_config = QuantoConfig(weights="int4") # This often fails
 
 
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     torch_dtype=torch.float16, # Load in float16 initially
-    quantization_config=quantization_config, # Apply Quanto quantization
+    # quantization_config=quantization_config, # Apply Quanto quantization
     device_map="auto" # Let HF Accelerate handle initial device mapping
 )
 model.to(device) 
